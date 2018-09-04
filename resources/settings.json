@@ -1,0 +1,17 @@
+{
+  "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
+  "SettingsVersion": 1.2,
+  "SimMode": "",
+  "CameraDefaults": {
+    "CaptureSettings": [
+      {
+        "ImageType": 0,
+        "Width": 300,
+        "Height": 300,
+        "FOV_Degrees": 84,
+        "TargetGamma": 2.0,
+        "MotionBlurAmount": 1
+      }
+    ]
+  }
+}
