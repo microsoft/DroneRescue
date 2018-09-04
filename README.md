@@ -23,27 +23,27 @@ We are going to create a new Azure virtual machine utilizing GPUs. If you don't 
 
 2. Click **Create a resource** then search for and select **Windows Server 2016 VM** 
 
-![drone-1]
+![drone-1](images/drone-1.png?raw=true "Title")
 
 3. On the **Create virtual machine** slice complete the **Basics** mandatory options ensuring to select **HDD** for **VM disk type** and one of the supported regions for **NV-series**. You can find NV-series supported regions here https://azure.microsoft.com/global-infrastructure/services. Click **OK** to continue
 
-![drone-2]
+![drone-2](images/drone-2.png?raw=true "Title")
 
 4. On the **Size** slice change the compute type to **GPU**, select **NV6** and click **Select**
 
-![drone-3]
+![drone-3](images/drone-3.png?raw=true "Title")
 
 5. Review the **Settings** and complete the mandatory fields, click **OK** to continue
 
-![drone-4]
+![drone-4](images/drone-4.png?raw=true "Title")
 
 6. Review the **Summary** slice and click **Create** to continue
 
-![drone-5]
+![drone-5](images/drone-5.png?raw=true "Title")
 
 7. Once the new virtual machine provisions click **Connect** then download and open the RDP file using **Microsoft Remote Desktop**
 
-![drone-6]
+![drone-6](images/drone-6.png?raw=true "Title")
 
 8. Next we will install the Nvidia drivers, download the **NV-series** driver from the [following site](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) and follow the instructions.
 
