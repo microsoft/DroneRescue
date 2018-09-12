@@ -119,17 +119,16 @@ Now we will install the latest version of AirSim from GitHub
 
 Now we will install the drone rescue landscape from GitHub
 
-1. Open the following URL in a browser `https://github.com/Microsoft/DroneRescue`.
+1. Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents\`.
+  > [!NOTE] You can clone the repo using git or click **Download ZIP** to directly download the lab materials from your browser.
 
-2. Select **Clone or download** then click **Download ZIP** to download the repository
+2. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimServer.zip`.
 
-3. Once the download completes, extract the contents of the ZIP file 
+3. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder.
 
-4. Open the file explorer and navigate to the folder where you extracted DroneRescue
+4. Double click **run.bat** to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation. NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
 
-5. Double click **\Binaries\Win64\MSBuild2018.exe** to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation. NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
-
-6. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message. Try running the drone rescue landscape again (see previous step).
+5. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message. Try running the drone rescue landscape again (see previous step).
 
 > With the DroneRescue window in focus press **3** to open the drone camera window.
 
@@ -141,7 +140,7 @@ Now we will install the drone rescue landscape from GitHub
 
 In this step well will fly the drone around our 3D world and orbit each animal so we can take some photos. Ensure the custom drone rescue landscape world is running in AirSim as per the previous step, we ill connect to the running environment using Python.
 
-1. Copy **search_sample.py** and **drone_orbit.py** from the extracted DroneRescue folder into the extracted **AirSim** folder **AirSim/PythonClient/multirotor/**
+1. Copy **search_sample.py** and **drone_orbit.py** from the extracted `DroneRescue\resources` folder into the extracted **AirSim** folder **AirSim/PythonClient/multirotor/**
 
 1. Using Visual Studio Code, open the **PythonClient** folder within the AirSim folder you extracted earlier. Click on **search_sample.py** you just copied to open the python script.
 
