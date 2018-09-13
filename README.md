@@ -129,6 +129,11 @@ Now we will install the drone rescue landscape from GitHub
 4. Double click **run.bat** to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation. NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
 
 5. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message. Try running the drone rescue landscape again (see previous step).
+      a. Microsoft Visual C++ can be found [here](https://go.microsoft.com/fwlink/?LinkId=746572)
+      
+      b. DirectX can be found [here](https://www.microsoft.com/en-us/download/confirmation.aspx?id=8109)
+      
+      c. Microsoft .NET 4.5 can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=30653) 
 
 > With the DroneRescue window in focus press **3** to open the drone camera window.
 
