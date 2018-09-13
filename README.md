@@ -160,7 +160,7 @@ In this step well will fly the drone around our 3D world and orbit each animal s
 
 6. Wait until you see **Image capture complete** in the Visual Studio Code output windows and the drone return to the center of the landscape and land.
 
-7. Inspect the images in the **Images** folder, you should see photo's of the black sheep.
+7. Inspect the images in the **AirSim/PythonClient/multirotor/images** folder, you should see photos of the black sheep.
 
 > The animal should be in the center of the image as we are going to use them to build and train our Custom Vision model.
 
@@ -178,24 +178,24 @@ Now we will use the images we captured in the previous steps to build and train 
 
 2. Click **New Project** and name it **AirSim Animals**, select **General (compact)** domain and **Create Project**.
 
-3. Now we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **Images** folder. Enter **BlackSheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
+3. Now we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **AirSim/PythonClient/multirotor/images** folder. Enter **BlackSheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
 
-4. Upload and tag the images in the **TrainingImages** folder to your Custom Vision model.
+4. Upload and tag the images in the **DroneRescue\TrainingImages** folder to your Custom Vision model.
 
 5. Next, we will modify **search_sample.py** to locate our next animal and capture images. Return to Visual Studio Code and open **search_sample.py**. 
 
-6. Nagivate to the bottom of the file and replace the **Blacksheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
+6. Nagivate to the bottom of the file and replace the **BlackSheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
 `(-12.18, -13.56, "AlpacaRainbow")` 
 
 7. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
 
-8. Upload and tag the **AlpacaRainbow** images from the **Images** folder into Custom Vision.
+8. Upload and tag the **AlpacaRainbow** images from the **AirSim/PythonClient/multirotor/images** folder into Custom Vision.
 
 9. Now that we have uploaded and tagged two different animals, let's train the model and run a quick test to see how we're doing. Select **"Train"** to start our first training iteration. Once complete you will see the precision and recall for our tagged images, all going well you should see 100% across the board!
 
 10.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediciton percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
 
-11.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\testimages\AlpacaRainbow.png**. If you have followed along so far you should see a probablility of 99.9% for the AlpacaRainbow. Now things get a little more interesting!
+11.  Let's run a quick test using a real world photograph of our black sheep and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\BlackSheep.png**. If you have followed along so far you should see a probablility of 99.9% for the BlackSheep. Now things get a little more interesting!
 
 12. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
 
@@ -220,13 +220,6 @@ animals = [(19.8, -11, "AlpacaPink"),
         (3.5, 9.4, "Chick"),
         (-13.2, -0.25, "Chipmunk"),
         (-6.55, 12.25, "Hippo")]
-```
-
-Also, comment the next line of code, we don't need to land until we have photographed all the animals:
-
-```
-    # that's enough fun for now. let's quit cleanly
-    land()
 ```
 
 To help you out we have provided one real world image of each animal to help refine the model. You can find the images in **TrainingImages** add these to your model with the correct tags.
