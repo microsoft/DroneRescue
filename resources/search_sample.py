@@ -71,9 +71,6 @@ def OrbitAnimal(cx, cy, radius, speed, altitude, camera_angle, animal):
     nav = drone_orbit.OrbitNavigator(photo_prefix = animal, radius = radius, altitude = altitude, speed = speed, iterations = 1, center = [cx - pos.x_val, cy - pos.y_val], snapshots = 30)
     nav.start()
 
-    # that's enough fun for now. let's quit cleanly
-    land()
-
 def land():
     print("landing...")
     client.landAsync().join()
@@ -110,12 +107,14 @@ def CropImages():
             continue
 
 if __name__ == '__main__':
-    animals = [(5.42, -3.7, "AlpacaTeal")]
+    animals = [(19.6, 9.6, "BlackSheep")]
 
     # let's find the animals and take some photos
     for pos in animals:
         print(pos[2])
         OrbitAnimal(pos[0], pos[1], 2, 0.4, 1, -30, pos[2])
 
-
+    # that's enough fun for now. let's quit cleanly
+    land()
+    
     print("Image capture complete...")
