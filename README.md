@@ -184,7 +184,7 @@ Now we will use the images we captured in the previous steps to build and train 
 
 5. Next, we will modify **search_sample.py** to locate our next animal and capture images. Return to Visual Studio Code and open **search_sample.py**. 
 
-6. Nagivate to the bottom of the file and replace the **BlackSheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
+6. Navigate to the bottom of the file and replace the **BlackSheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
 `(-12.18, -13.56, "AlpacaRainbow")` 
 
 7. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
@@ -193,7 +193,7 @@ Now we will use the images we captured in the previous steps to build and train 
 
 9. Now that we have uploaded and tagged two different animals, let's train the model and run a quick test to see how we're doing. Select **"Train"** to start our first training iteration. Once complete you will see the precision and recall for our tagged images, all going well you should see 100% across the board!
 
-10.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediciton percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
+10.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediction percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
 
 11.  Let's run a quick test using a real world photograph of our black sheep and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\BlackSheep.png**. If you have followed along so far you should see a probablility of 99.9% for the BlackSheep. Now things get a little more interesting!
 
