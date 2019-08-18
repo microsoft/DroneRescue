@@ -19,35 +19,42 @@ The flow of the lab consists of the following steps:
 We are going to create a new Azure virtual machine utilizing GPUs. If you don't have a Microsoft Azure subscription you can create a trial account at https://azure.microsoft.com
 
 
+
 1. Login to the Microsoft Azure portal https://portal.azure.com
 
-2. Click **Create a resource** then search for and select **Windows Server 2016 VM** 
+2. Click **Create a resource** then search for and select **Data Science Virtual Machine - Windows 2016** and click **Create**. 
 
-![drone-1](images/drone-1.png?raw=true "Title")
+![drone-1]
 
-3. On the **Create virtual machine** slice complete the **Basics** mandatory options ensuring to select **HDD** for **VM disk type** and one of the supported regions for **NV-series**. You can find NV-series supported regions here https://azure.microsoft.com/global-infrastructure/services. Click **OK** to continue
+3. On the **Create virtual machine** slice complete the **Basics** mandatory options ensuring to select one of the supported regions for **NV-series**. You can find NV-series supported regions here https://azure.microsoft.com/global-infrastructure/services. Click **OK** to continue
 
-![drone-2](images/drone-2.png?raw=true "Title")
+![drone-2]
 
-4. On the **Size** slice change the compute type to **GPU**, select **NV6** and click **Select**
+4. In the **Size** field, click on **Change size**. This opens the **Select a VM size** panel.
 
-![drone-3](images/drone-3.png?raw=true "Title")
+5. Click on **Clear all filters**, search for the `NV6` size and **select** it.
 
-5. Review the **Settings** and complete the mandatory fields, click **OK** to continue
+    > **Note:** You can actually use any *NV* size. The higher the size, the more powerful the machine will be. For this Lab you won't need a super powerful machine, just a machine with GPUs.
 
-![drone-4](images/drone-4.png?raw=true "Title")
+![drone-3]
 
-6. Review the **Summary** slice and click **Create** to continue
+6. In the **Administrator account section**, provide the **Username**, **Password** and **Confirm password** fields.
 
-![drone-5](images/drone-5.png?raw=true "Title")
+	> **Note:** Make sure you remember this info as you'll need it to enter your Virtual Machine.
+
+![drone-4]
+
+7. Click on **Review + create** to go to the final step.
+
+8. Click on the **Create** button and wait for the creation process, this might take several minutes.
 
 7. Once the new virtual machine provisions click **Connect** then download and open the RDP file using **Microsoft Remote Desktop**
 
-![drone-6](images/drone-6.png?raw=true "Title")
+![drone-5]
 
-8. Next we will install the Nvidia drivers, download the **NV-series** driver from the [following site](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) and follow the instructions.
+8. Next we will install the Nvidia drivers, download the **NV-series** driver from the following site and follow the instructions https://docs.microsoft.com/en-us/azure/virtual-machines/windows/n-series-driver-setup
 
-  > [!ALERT] On Azure NV VMs, a restart is required after driver installation.
+> Make sure to select **No** when prompted to use the default security setting if you are using **Internet Explorer** to download materials.
 
 ---
 
@@ -89,27 +96,25 @@ Now we will install the latest version of AirSim from GitHub
 
 2. Select **Clone or download** then click **Download ZIP** to download the repository
 
-3. Once the download completes, extract the contents of the ZIP file to `<your user home>\Documents\AirSim`.
+3. Once the download completes, extract the contents of the ZIP file 
 
-4. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
+4. Create the following file in your **Documents** folder **AirSim/settings.json and paste in the following AirSim settings:
 
 ```
 {
   "SeeDocsAt": "https://github.com/Microsoft/AirSim/blob/master/docs/settings.md",
-  "SettingsVersion": 1.2,
+  "SettingsVersion": 1.0,
   "SimMode": "",
-  "CameraDefaults": {
-    "CaptureSettings": [
-      {
-        "ImageType": 0,
-        "Width": 300,
-        "Height": 300,
-        "FOV_Degrees": 84,
-        "TargetGamma": 2.0,
-        "MotionBlurAmount": 1
-      }
-    ]
-  }
+  "CaptureSettings": [
+    {
+      "ImageType": 0,
+      "Width": 1920,
+      "Height": 1080,
+      "FOV_Degrees": 84,
+      "TargetGamma": 2.0,
+      "MotionBlurAmount": 1
+    }
+  ]
 }
 ```
 
@@ -119,26 +124,19 @@ Now we will install the latest version of AirSim from GitHub
 
 Now we will install the drone rescue landscape from GitHub
 
-1. Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents\`.
-  > [!NOTE] You can clone the repo using git or click **Download ZIP** to directly download the lab materials from your browser.
+1. Open the following URL in a browser https://github.com/Microsoft/DroneRescue
 
-2. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimServer.zip`.
+2. Select **Clone or download** then click **Download ZIP** to download the repository
 
-3. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder.
+3. Once the download completes, extract the contents of the ZIP file 
 
-4. Double click **run.bat** to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation. NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
+4. Open file explorer and navigate to the folder where you extracted DroneRescue
 
-5. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message. Try running the drone rescue landscape again (see previous step).
-      
-      a. Microsoft Visual C++ can be found [here](https://go.microsoft.com/fwlink/?LinkId=746572)
-      
-      b. DirectX can be found [here](https://www.microsoft.com/en-us/download/confirmation.aspx?id=8109)
-      
-      c. Microsoft .NET 4.5 can be found [here](https://www.microsoft.com/en-us/download/details.aspx?id=30653) 
+5. Double click **run.bat** to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation. NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
+
+6. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message.
 
 > With the DroneRescue window in focus press **3** to open the drone camera window.
-
-> If you lose your mouse, hit the **Windows** key to get it back.
 
 ---
 
@@ -146,7 +144,7 @@ Now we will install the drone rescue landscape from GitHub
 
 In this step well will fly the drone around our 3D world and orbit each animal so we can take some photos. Ensure the custom drone rescue landscape world is running in AirSim as per the previous step, we ill connect to the running environment using Python.
 
-1. Copy **search_sample.py** and **drone_orbit.py** from the extracted `DroneRescue\resources` folder into the extracted **AirSim** folder **AirSim/PythonClient/multirotor/**
+> Copy **search_sample.py** from the extracted DroneRescue folder into the extracted **AirSim** folder **AirSim/PythonClient/multirotor/**
 
 1. Using Visual Studio Code, open the **PythonClient** folder within the AirSim folder you extracted earlier. Click on **search_sample.py** you just copied to open the python script.
 
@@ -160,9 +158,20 @@ In this step well will fly the drone around our 3D world and orbit each animal s
 
 6. Wait until you see **Image capture complete** in the Visual Studio Code output windows and the drone return to the center of the landscape and land.
 
-7. Inspect the images in the **AirSim/PythonClient/multirotor/images** folder, you should see photos of the black sheep.
+7. Inspect the images in the **Images** folder, you should see photo's of the black sheep cropped to 800x800 pixels.
 
 > The animal should be in the center of the image as we are going to use them to build and train our Custom Vision model.
+
+8. Move the following block of code to the end of the **search_sample.py** file, we don't need to land until we have photographed all the animals:
+
+```
+    # that's enough fun for now. let's quit cleanly
+    client.armDisarm(False)
+    client.reset()
+    client.enableApiControl(False)
+```
+
+> If you lose your mouse, hit the **Windows** key to get it back.
 
 > If the drone stops responding, open **Task Manager** and end any **Soccer Field** or **DroneRescue** Unreal tasks.
 
@@ -174,42 +183,43 @@ Now we will use the images we captured in the previous steps to build and train 
 
 1. Using Microsoft Edge, open the following URL in a browser and login using your MSA https://customvision.ai/
 
-  > [!ALERT] Custom Vision doesn't support Internet Explorer.
-
 2. Click **New Project** and name it **AirSim Animals**, select **General (compact)** domain and **Create Project**.
 
-3. Now we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **AirSim/PythonClient/multirotor/images** folder. Enter **BlackSheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
+3. Now we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **Images** folder. Enter **BlackSheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
 
-4. Upload and tag the images in the **DroneRescue\TrainingImages** folder to your Custom Vision model.
+4. Upload and tag the images in the **TrainingImages** folder to your Custom Vision model
 
 5. Next, we will modify **search_sample.py** to locate our next animal and capture images. Return to Visual Studio Code and open **search_sample.py**. 
 
-6. Nagivate to the bottom of the file and replace the **BlackSheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
+6. Nagivate to the bottom of the file and replace the **Blacksheep** location with the following animal location to the animals array to tell our drone where to locate the next animal:
 `(-12.18, -13.56, "AlpacaRainbow")` 
+Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
 
-7. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
+7. Upload and tag the **AlpacaRainbow** images from the **Images** folder into Custom Vision.
 
-8. Upload and tag the **AlpacaRainbow** images from the **AirSim/PythonClient/multirotor/images** folder into Custom Vision.
+8. Now that we have uploaded and tagged two different animals, let's train the model and run a quick test to see how we're doing. Select **"Train"** to start our first training iteration. Once complete you will see the precision and recall for our tagged images, all going well you should see 100% across the board!
 
-9. Now that we have uploaded and tagged two different animals, let's train the model and run a quick test to see how we're doing. Select **"Train"** to start our first training iteration. Once complete you will see the precision and recall for our tagged images, all going well you should see 100% across the board!
+9.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediciton percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
 
-10.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediciton percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
+10.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\testimages\AlpacaRainbow.png**. If you have followed along so far you should see a probablility of 99.9% for the AlpacaRainbow. Now things get a little more interesting!
 
-11.  Let's run a quick test using a real world photograph of our black sheep and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\BlackSheep.png**. If you have followed along so far you should see a probablility of 99.9% for the BlackSheep. Now things get a little more interesting!
+11. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
 
-12. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
+12. Our first image capture drone flew a 2 meter radius circle around the animal with the camera angle at 30-degrees. Let's capture some more images at a different radius and camera angle. Edit the following two line of code to move the drone to a 3 meter radius and a camera angle of 20-degrees.
 
-13. Our first image capture drone flew a 2 meter radius circle around the animal with the camera angle at 30-degrees. Let's capture some more images at a different radius and camera angle. Edit the following two line of code to move the drone to a 3 meter radius and a camera angle of 20-degrees: `OrbitAnimal(pos[0], pos[1], 3, 0.4, 1, -20, pos[2])`
+Change our camera and to 20-degrees and 3-meter radius
 
-14. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
+`OrbitAnimal(pos[0], pos[1], 3, 0.4, 1, -20, pos[2])`
 
-15. Return to **customvision.ai** and add the images as we did previously, tag the new images with **AlpacaRainbow**. Select **Done** once the images have uploaded successfully. 
+13. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
 
-16. Train the model with the new images and inspect the iteration results.
+14. Return to **customvision.ai** and add the images as we did previously, tag the new images with **AlpacaRainbow**. Select **Done** once the images have uploaded successfully. 
 
-17. Well that's enough to get you on your way, go forth and search for the remaining animals. Remember the more images you add the better your model will perform. Train and test your model often, think of other interesting ways you could enhance your model, for example, fly low and close to the animals, try different heights, angles, and radius.
+15. Train the model with the new images and inspect the iteration results.
 
-Just to keep things moving along, below are the coordinates where you can find the other animals... All of them except the unicorn. Add them to the `search_sample.py` file:
+Well that's enough to get you on your way, go forth and search for the remaining animals, remember the more images you add the better your model will perform. Train and test your model often, think of other interesting ways you could enhance your model, for example, fly low and close to the animals, try different heights, angles, and radii.
+
+Just to keep things moving along, below are the coordinates where you can find the other animals... All of them except the unicorn.
 
 ```
 animals = [(19.8, -11, "AlpacaPink"),
@@ -244,16 +254,8 @@ Once you are happy with your model you can export it in Tensorflow format.
 
 ---
 
-# Contributing
 
-This project welcomes contributions and suggestions.  Most contributions require you to agree to a
-Contributor License Agreement (CLA) declaring that you have the right to, and actually do, grant us
-the rights to use your contribution. For details, visit https://cla.microsoft.com.
 
-When you submit a pull request, a CLA-bot will automatically determine whether you need to provide
-a CLA and decorate the PR appropriately (e.g., label, comment). Simply follow the instructions
-provided by the bot. You will only need to do this once across all repos using our CLA.
 
-This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
-For more information see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or
-contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+
