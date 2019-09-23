@@ -1,4 +1,3 @@
-import setup_path 
 import airsim
 
 import os
