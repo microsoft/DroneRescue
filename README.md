@@ -208,7 +208,9 @@ Now we will use the images we captured in the previous steps to build and train 
 
  - In the `Create new project window`, select **Classification** project type, **Multiclass** classification type and **General (compact)** domain. Then click the **Create Project** button. 
 
+<p align="center">
 <img src="images/DroneRescue_CV4.JPG" width="700">
+</p>
 
 3. The project is now created. Select the `AirSim Animals` project from the project list in the dashboard.
 
