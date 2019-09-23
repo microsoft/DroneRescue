@@ -3,9 +3,12 @@
 ## Introduction
 The goal of this lab is to work through how to bring real AI to the edge, by creating a custom vision model in the cloud. You will learn the basics of the MS AirSim Drone simulator (https://github.com/microsoft/AirSim) and the Microsoft Custom Vision Cognitive Service (https://www.customvision.ai).
 
+
 The lab brings a simulated world where we will control the navigation of a drone that must find animals in it. For each animal we will create a dataset of pictures that will be used to train a custom vision classifier model in Azure. this model will be able to identify the animal type from a provided new picture of this animal set.
 
-<img src="./images/DroneRescue_AirsimRuntime.JPG"  width="400" style="text-align: center"/>
+<p align="center">
+   <img src="./images/DroneRescue_AirsimRuntime.JPG"  width="700"/>
+</p>
 
 Your mission, should you choose to accept it, is to work through the guided steps below and be able to export a working model from Custom Vision in TensorFlow format that can be run on an edge device.
 
@@ -61,7 +64,9 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 2. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
-<img src="images/DroneRescue_Airsim.JPG">
+<p align="center">
+<img src="images/DroneRescue_Airsim.JPG" width="700">
+ </p>
 
 
 3. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
@@ -110,8 +115,9 @@ git clone https://github.com/microsoft/DroneRescue
 
 > If you lose your mouse, hit the **Windows** key to get it back.
 
-<img src="images/DroneRescue_RunStartup.JPG">
-
+<p align="center">
+<img src="images/DroneRescue_RunStartup.JPG" width="700">
+</p>
 ---
 
 ### Run the Drone navigation and Capture Synthetic Images
@@ -131,8 +137,9 @@ After that, the drone will start moving and will navigate to the black sheep ani
 1. Wait until you see **Image capture complete** in the Visual Studio Code output windows and the drone return to the center of the landscape and land.
 
 2. Inspect the images in the generated `drone_images` folder, you should see photo's of the black sheep.
-
-<img src="images/DroneRescue_BlackSheep_dataset.JPG">
+<p align="center">
+<img src="images/DroneRescue_BlackSheep_dataset.JPG" width="700">
+ </p>
 
 > The animal should be in the center of the image as we are going to use them to build and train our Custom Vision model.
 
@@ -147,7 +154,9 @@ We encourage you have a look to the navigation code to using [Visual Studio Code
 
 In the following image we show the entry point code of this drone navigation from Visual Studio Code:
 
-<img src="images/DroneRescue_vs_code.JPG">
+<p align="center">
+<img src="images/DroneRescue_vs_code.JPG" width="700">
+ </p>
 
 You can even start and debug the navigation from Visual Studio Code. In order to do that, please follow the next steps:
 
@@ -174,34 +183,44 @@ Now we will use the images we captured in the previous steps to build and train 
    
 2. After the login, you will see in your `Custom Vision Cognitive Service Dashboard` as it is shown below:
 
-
-<img src="images/DroneRescue_CV2.JPG" width=400>
+<p align="center">
+<img src="images/DroneRescue_CV2.JPG" width="700">
+ </p>
 
  -  Click **New Project** and name it **AirSim Animals**, create a new resource clicking **Resource->create new**
 
-<img src="images/DroneRescue_CV2-1.JPG" width=400>
+<p align="center">
+<img src="images/DroneRescue_CV2-1.JPG" width="700">
+ </p>
 
  -  We will create now a `Custom Vision Cognitive Service` resource clicking **Resource->create new**
-
-<img src="images/DroneRescue_CV2-2.JPG" width=400>
+<p align="center">
+<img src="images/DroneRescue_CV2-2.JPG" width="700">
+ </p>
 
  -  Create a new resource group clicking **Resource->create new** to locate your `Custom Vision Cognitive Service` resource already created in your Azure Subscription. Name the resource group **AirSim_Animals**, select the most convenient  location and press the **Create resource group** button.
 
-<img src="images/DroneRescue_CV2-3.JPG" width=400>
+<p align="center">
+<img src="images/DroneRescue_CV2-3.JPG" width="700">
+ </p>
 
  -  Now, Again in the resource creation window, press the **Create Resource** button, to finally get back to the `Create new project window`.
 
  - In the `Create new project window`, select **Classification** project type, **Multiclass** classification type and **General (compact)** domain. Then click the **Create Project** button. 
 
-<img src="images/DroneRescue_CV4.JPG" width="500">
+<img src="images/DroneRescue_CV4.JPG" width="700">
 
 3. The project is now created. Select the `AirSim Animals` project from the project list in the dashboard.
 
-<img src="images/DroneRescue_CV6.JPG" width="500">
+<p align="center">
+<img src="images/DroneRescue_CV6.JPG" width="700">
+ </p>
 
 4. Now we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **Images** folder. Enter **Black_Sheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
 
-<img src="images/DroneRescue_CV7.JPG" width="500">
+<p align="center">
+<img src="images/DroneRescue_CV7.JPG" width="700">
+ </p>
 
 5. Upload and tag the images in the **TrainingImages** folder to your Custom Vision model.
 
@@ -216,19 +235,24 @@ OrbitAnimal(-12.18, -13.56, 2, 0.4, 1, -30, "AlpacaRainbow")
 
 9. Upload and tag the **Alpaca_Rainbow** images from the **Images** folder into Custom Vision.
 
-<img src="images/DroneRescue_CV8.JPG" width="500">
+<p align="center">
+<img src="images/DroneRescue_CV8.JPG" width="700">
+ </p>
 
 10. Now that we have uploaded and tagged two different animals, let's train the model and run a quick test to see how we're doing. Select **"Train"** to start our first training iteration. Once complete you will see the precision and recall for our tagged images, all going well you should see 100% across the board!
 
-<img src="images/DroneRescue_CV9.JPG" width="500">
+<p align="center">
+<img src="images/DroneRescue_CV9.JPG" width="700">
 
-<img src="images/DroneRescue_CV10.JPG" width="500">
+<img src="images/DroneRescue_CV10.JPG" width="700">
+</p>
 
 11.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediction percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
 
 12.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\AlpacaRainbow.png**. If you have followed along so far you should see a probability of 99.9% - 100% for the AlpacaRainbow. Now things get a little more interesting!
-
-<img src="images/DroneRescue_CV12.JPG" width="500">
+<p align="center">
+<img src="images/DroneRescue_CV12.JPG" width="700">
+ </p>
 
 13. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
 
