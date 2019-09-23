@@ -16,6 +16,7 @@ def OrbitAnimal(cx, cy, radius, speed, altitude, camera_angle, animal):
     @param camera_angle: The angle of the camera
     @param animal: The name of the animal, used to prefix the photos
     """
+    
     x = cx - radius
     y = cy
 
@@ -47,7 +48,7 @@ def OrbitAnimal(cx, cy, radius, speed, altitude, camera_angle, animal):
     print("yaw is {}".format(o[2]))
 
     # let's orbit around the animal and take some photos
-    nav = drone_orbit.OrbitNavigator(photo_prefix = animal, radius = radius, altitude = altitude, speed = speed, iterations = 1, center = [cx - pos.x_val, cy - pos.y_val], snapshots = 30)
+    nav = drone_orbit.OrbitNavigator(photo_prefix = animal, radius = radius, altitude = altitude, speed = speed, iterations = 1, center = [cx - pos.x_val, cy - pos.y_val], snapshots = 30, image_dir = "./drone_images/")
     nav.start()
 
 def land():
@@ -60,7 +61,7 @@ def land():
     client.reset()
     client.enableApiControl(False)
 
-def CropImages():
+def CropImages(image_dir):
     width=800
     height=800
 
@@ -107,13 +108,13 @@ if __name__ == '__main__':
         pos = client.getMultirotorState().kinematics_estimated.position
         z = pos.z_val
 
-    image_dir = "./images/"
-
-    # Start navigation tasks
+    # Start the navigation task
 
     OrbitAnimal(19.6, 9.6, 2, 0.4, 1, -30, "BlackSheep")
 
-    #animals = [(-12.18, -13.56, "AlpacaRainbow")]
+    #OrbitAnimal(-12.18, -13.56, 2, 0.4, 1, -30, "AlpacaRainbow")
+
+    #OrbitAnimal(-12.18, -13.56, 3, 0.4, 1, -20, "AlpacaRainbow")
 
     #animals = [(19.8, -11, "AlpacaPink"),
     #    (5.42, -3.7, "AlpacaTeal"),
@@ -134,7 +135,7 @@ if __name__ == '__main__':
     #        speed = config[1]
     #        camera_angle = config[2]
 
-    #        OrbitAnimal(animal[0], animal[1], radius, speed, 1, camera_angle, animal[2])
+    #        OrbitAnimal(animal[0], animal[1], radius, speed, 1, camera_angle, animal[2], image_dir)
 
     # that's enough fun for now. let's quit cleanly
     land()

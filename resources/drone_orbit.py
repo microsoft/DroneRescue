@@ -15,7 +15,7 @@ class Position:
 
 # Make the drone fly in a circle.
 class OrbitNavigator:
-    def __init__(self, photo_prefix = "photo_", radius = 2, altitude = 10, speed = 2, iterations = 1, center = [1,0], snapshots = None):
+    def __init__(self, photo_prefix = "photo_", radius = 2, altitude = 10, speed = 2, iterations = 1, center = [1,0], snapshots = None, image_dir = "./images/"):
         self.radius = radius
         self.altitude = altitude
         self.speed = speed
@@ -23,6 +23,7 @@ class OrbitNavigator:
         self.snapshots = snapshots
         self.snapshot_delta = None
         self.next_snapshot = None
+        self.image_dir=image_dir
         self.z = None
         self.snapshot_index = 0
         self.photo_prefix = photo_prefix
@@ -197,9 +198,8 @@ class OrbitNavigator:
         return crossing
 
     def take_snapshot(self):
-        image_dir = "./images/"
-        if not os.path.exists(image_dir):
-            os.makedirs(image_dir)
+        if not os.path.exists(self.image_dir):
+            os.makedirs(self.image_dir)
 
         # first hold our current position so drone doesn't try and keep flying while we take the picture.
         pos = self.client.getMultirotorState().kinematics_estimated.position
@@ -209,7 +209,7 @@ class OrbitNavigator:
         response = responses[0]
         filename = self.photo_prefix + str(self.snapshot_index) + "_" + str(int(time.time()))
         self.snapshot_index += 1
-        airsim.write_file(os.path.normpath(image_dir + filename + '.png'), response.image_data_uint8)        
+        airsim.write_file(os.path.normpath(self.image_dir + filename + '.png'), response.image_data_uint8)        
         print("Saved snapshot: {}".format(filename))
         self.start_time = time.time()  # cause smooth ramp up to happen again after photo is taken.
 
