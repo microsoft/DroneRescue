@@ -3,14 +3,14 @@
 ## Introduction
 The goal of this lab is to work through how to bring real AI to the edge, by creating a custom vision model in the cloud. You will learn the basics of the MS AirSim Drone simulator (https://github.com/microsoft/AirSim) and the Microsoft Custom Vision Cognitive Service (https://www.customvision.ai).
 
-The lab brings a simulated world where we will control the navigation of a drone that must find animals in it. For each animal we will create a datset of pictures that will be used to train a custom vision classifier model in Azure. this model will be able to identify the aninmal type from a provided new picture of this animal set.
+The lab brings a simulated world where we will control the navigation of a drone that must find animals in it. For each animal we will create a dataset of pictures that will be used to train a custom vision classifier model in Azure. this model will be able to identify the animal type from a provided new picture of this animal set.
 
 <img src="./images/DroneRescue_AirsimRuntime.JPG"  width="400" style="text-align: center"/>
 
-Your mission, should you chose to accept it, is to work through the guided steps below and be able to export a working model from Custom Vision in TensorFlow format that can be run on an edge device.
+Your mission, should you choose to accept it, is to work through the guided steps below and be able to export a working model from Custom Vision in TensorFlow format that can be run on an edge device.
 
 The flow of the lab consists of the following steps:
-1. Use AirSim to generate training data for your model by flying the virtual drone around the 3D-rendered environment and collecting images of all of the animals. 
+1. Use AirSim to generate training data for your model by flying the virtual drone around the 3D-rendered environment and collecting images of all animals. 
 
 2. Import the images and tag them into a new Custom Vision project, then use the training images to train and test the model.
 
@@ -104,7 +104,7 @@ git clone https://github.com/microsoft/DroneRescue
 
    NOTE: if you want to explore the area manually you can select **Yes** to drive a vehicle around, simply restart AirSim to change back to the drone.
 
-2. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed you can ignore the message. Try running the drone rescue landscape again (see previous step).
+2. If prompted to install Microsoft Visual C++ and DirectX, select **Yes** and follow the installation prompts. If you receive a message that Microsoft .NET 3.5 couldn't be installed, you can ignore the message. Try running the drone rescue landscape again (see previous step).
 
 > With the DroneRescue window in focus press **3** to open the drone camera window.
 
@@ -140,7 +140,7 @@ After that, the drone will start moving and will navigate to the black sheep ani
 
 
 ### Explore the drone navigation code
-We encorage you have a look to the navigation code to using [Visual Studio Code](https://code.visualstudio.com/) and learn how you can connect to the AirsimServer and control the drone from the python `airsim` client library.
+We encourage you have a look to the navigation code to using [Visual Studio Code](https://code.visualstudio.com/) and learn how you can connect to the AirsimServer and control the drone from the python `airsim` client library.
 
  - The `resources\search_sample.py` is the main entry point where the main navigation task is implemented. 
 - The `resources\drone_orbit.py` file contains the implementation about how the drone can perform an orbital motion around a position.
@@ -185,7 +185,7 @@ Now we will use the images we captured in the previous steps to build and train 
 
 <img src="images/DroneRescue_CV2-2.JPG" width=400>
 
- -  Create a new resource group clicking **Resource->create new** to locate your `Custom Vision Cognitive Service` resource already created in your Azure Subscription. Name the resource group **AirSim_Animals**, select the most convinient location and press the **Create resource group** button.
+ -  Create a new resource group clicking **Resource->create new** to locate your `Custom Vision Cognitive Service` resource already created in your Azure Subscription. Name the resource group **AirSim_Animals**, select the most convenient  location and press the **Create resource group** button.
 
 <img src="images/DroneRescue_CV2-3.JPG" width=400>
 
