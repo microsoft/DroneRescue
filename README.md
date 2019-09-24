@@ -67,11 +67,6 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 2. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
-<p align="center">
-<img src="images/DroneRescue_Airsim.JPG" width="700"/>
- </p>
-
-
 3. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
 
 ```
@@ -117,6 +112,10 @@ git clone https://github.com/microsoft/DroneRescue
 > With the DroneRescue window in focus press **3** to open the drone camera window.
 
 > If you lose your mouse, hit the **Windows** key to get it back.
+
+<p align="center">	
+<img src="images/DroneRescue_RunStartup.JPG" width="700"/>	
+</p>
 
 ### Capture Synthetic Images with the Drone
 
