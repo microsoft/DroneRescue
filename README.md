@@ -67,11 +67,6 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 2. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
-<p align="center">
-<img src="images/DroneRescue_Airsim.JPG" width="700"/>
- </p>
-
-
 3. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
 
 ```
@@ -118,10 +113,9 @@ git clone https://github.com/microsoft/DroneRescue
 
 > If you lose your mouse, hit the **Windows** key to get it back.
 
-<p align="center">
-<img src="images/DroneRescue_RunStartup.JPG" width="700"/>
+<p align="center">	
+<img src="images/DroneRescue_RunStartup.JPG" width="700"/>	
 </p>
----
 
 ### Capture Synthetic Images with the Drone
 
@@ -173,7 +167,6 @@ You can even start and debug the navigation from Visual Studio Code. In order to
 
 5. Switch to the **DroneRescue** landscape you started earlier and observe the drone flying around the environment and orbiting one of the animals.
 
----
 
 ### Create Custom Vision Model in Azure
 
@@ -252,28 +245,26 @@ OrbitAnimal(-12.18, -13.56, 2, 0.4, 1, -30, "AlpacaRainbow")
 <img src="images/DroneRescue_CV10.JPG" width="700"/>
 </p>
 
-11.  Let's take a closer look at our training iteration, select **Training images** from the top navigation, then select **Iteration History** from the left hand navigation. Hover over the images to see the prediction percentages, any images that have a red boarder could cause our model some trouble. Some common causes of bad images are when the animal is not centered or too small, or there are other objects in the image that shouldn't be there.
-
-12.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\AlpacaRainbow.png**. If you have followed along so far you should see a probability of 99.9% - 100% for the AlpacaRainbow. Now things get a little more interesting!
+11.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\AlpacaRainbow.png**. If you have followed along so far you should see a probability of 99.9% - 100% for the AlpacaRainbow. Now things get a little more interesting!
 <p align="center">
 <img src="images/DroneRescue_CV12.JPG" width="700"/>
  </p>
 
-13. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
+12. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
 
-14. Our first image capture drone flew a 2 meter radius circle around the animal with the camera angle at 30-degrees. Let's capture some more images at a different radius and camera angle. Edit the following two line of code to move the drone to a 3 meter radius and a camera angle of 20-degrees. 
+13. Our first image capture drone flew a 2 meter radius circle around the animal with the camera angle at 30-degrees. Let's capture some more images at a different radius and camera angle. Edit the following two line of code to move the drone to a 3 meter radius and a camera angle of 20-degrees. 
 
 ```
 OrbitAnimal(-12.18, -13.56, 3, 0.4, 1, -20, "AlpacaRainbow")
 ```
 
-15. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
+14. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
 
-16. Return to **customvision.ai** and add the images as we did previously, tag the new images with **AlpacaRainbow**. Select **Done** once the images have uploaded successfully. 
+15. Return to **customvision.ai** and add the images as we did previously, tag the new images with **AlpacaRainbow**. Select **Done** once the images have uploaded successfully. 
 
-17. Train the model with the new images and inspect the iteration results.
+16. Train the model with the new images and inspect the iteration results.
 
-18. Well that's enough to get you on your way, go forth and search for the remaining animals. Remember the more images you add the better your model will perform. Train and test your model often, think of other interesting ways you could enhance your model, for example, fly low and close to the animals, try different heights, angles, and radius.
+17. Well that's enough to get you on your way, go forth and search for the remaining animals. Remember the more images you add the better your model will perform. Train and test your model often, think of other interesting ways you could enhance your model, for example, fly low and close to the animals, try different heights, angles, and radius.
 
 Just to keep things moving along, below are the coordinates where you can find the other animals... All of them except the unicorn. Add them to the `search_sample.py` file (you can find some clues about how to do this on the commented python code):
 
@@ -290,7 +281,6 @@ animals = [(19.8, -11, "AlpacaPink"),
 
 To help you out we have provided one real world image of each animal to help refine the model. You can find the images in **TrainingImages** add these to your model with the correct tags.
 
----
 
 ### Finding the Unicorn
 
@@ -300,7 +290,6 @@ You're probably wondering how you're going to rescue the unicorn? Well, for this
 
 Good luck!
 
----
 
 ### Exporting a Tensorflow Model
 
