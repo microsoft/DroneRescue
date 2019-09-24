@@ -27,8 +27,9 @@ The flow of the lab consists of the following steps:
     - Install Airsim
     - Install Drone Rescue Lab Code
   - Hands on Lab
-    - Capture Synthetic Images
-    - Create a Custom Vision Model
+    - Run the Airsim simulator
+    - Capture Synthetic Images with the Drone
+    - Create Custom Vision Model in Azure
     - Finding the Unicorn
     - Exporting a Tensorflow Model
   - Contributing
@@ -120,7 +121,7 @@ git clone https://github.com/microsoft/DroneRescue
 </p>
 ---
 
-### Run the Drone navigation and Capture Synthetic Images
+### Capture Synthetic Images with the Drone
 
 In this step well will fly the drone around our 3D world and orbit each animal so we can take some photos. Ensure the custom drone rescue landscape world is running in AirSim as per the previous step, we ill connect to the running environment using Python.
 
@@ -172,7 +173,7 @@ You can even start and debug the navigation from Visual Studio Code. In order to
 
 ---
 
-### Create an Azure Custom Vision Model
+### Create Custom Vision Model in Azure
 
 Now we will use the images we captured in the previous steps to build and train a Custom Vision Model.
 
