@@ -118,11 +118,6 @@ git clone https://github.com/microsoft/DroneRescue
 
 > If you lose your mouse, hit the **Windows** key to get it back.
 
-<p align="center">
-<img src="images/DroneRescue_RunStartup.JPG" width="700"/>
-</p>
----
-
 ### Capture Synthetic Images with the Drone
 
 In this step well will fly the drone around our 3D world and orbit each animal so we can take some photos. Ensure the custom drone rescue landscape world is running in AirSim as per the previous step, we ill connect to the running environment using Python.
@@ -173,7 +168,6 @@ You can even start and debug the navigation from Visual Studio Code. In order to
 
 5. Switch to the **DroneRescue** landscape you started earlier and observe the drone flying around the environment and orbiting one of the animals.
 
----
 
 ### Create Custom Vision Model in Azure
 
@@ -288,7 +282,6 @@ animals = [(19.8, -11, "AlpacaPink"),
 
 To help you out we have provided one real world image of each animal to help refine the model. You can find the images in **TrainingImages** add these to your model with the correct tags.
 
----
 
 ### Finding the Unicorn
 
@@ -298,7 +291,6 @@ You're probably wondering how you're going to rescue the unicorn? Well, for this
 
 Good luck!
 
----
 
 ### Exporting a Tensorflow Model
 
