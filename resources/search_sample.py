@@ -135,7 +135,9 @@ if __name__ == '__main__':
     #        speed = config[1]
     #        camera_angle = config[2]
 
-    #        OrbitAnimal(animal[0], animal[1], radius, speed, 1, camera_angle, animal[2], image_dir)
+    #        OrbitAnimal(animal[0], animal[1], radius, speed, 1, camera_angle, animal[2])
+
+    #OrbitAnimal(15, 1.0, 2, 0.4, 1, -30, "Unicorn")
 
     # that's enough fun for now. let's quit cleanly
     land()
