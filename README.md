@@ -40,7 +40,7 @@ The flow of the lab consists of the following steps:
 ### Host Machine Requirements
 In order to run the AirSim simulator you will need to have a computer with GPU, Windows and DirectX 11 installed. 
 
-**Alternatively**, you can create an Azure Virtual Machine with GPU to run the AirSim server. If you don't have a Microsoft Azure subscription you can create a trial account at https://azure.microsoft.com. Please, follow the steps described in this link: [Creating Azure Virtual Machine for DroneRescue Demo](docs/create_azure_state_machine.md) 
+**Alternatively**, you can create an Azure Virtual Machine with GPU to run the AirSim server. If you don't have a Microsoft Azure subscription you can create a trial account at https://azure.microsoft.com. Please, follow the steps described in this link: [Creating Azure Virtual Machine for DroneRescue Demo](docs/create_azure_vm.md) 
 
 ### Python requirements
 
