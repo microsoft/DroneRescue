@@ -248,7 +248,7 @@ OrbitAnimal(-12.18, -13.56, 2, 0.4, 1, -30, "AlpacaRainbow")
 11.  Let's run a quick test using a real world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select **Quick Test** then **Browse local files**, open the following file **DroneRescue\TestImages\AlpacaRainbow.png**. If you have followed along so far you should see a probability of 99.9% - 100% for the AlpacaRainbow. Now things get a little more interesting!
 <p align="center">
 <img src="images/DroneRescue_CV12.JPG" width="700"/>
- </p>
+</p>
 
 12. We don't know what angle or distance the real drone might fly over the lost animals, to help improve our chance of detection, let's add some more images to our dataset. To keep everything in order, move the previous images into another folder, in case we want to use them again later.
 
@@ -288,14 +288,20 @@ You're probably wondering how you're going to rescue the unicorn? Well, for this
 
 > You can press the **;** key to open the vehicle detail page that will show you your current position. 
 
-Good luck!
+Good luck! (you can find some clues in the code comments)
+
+<p align="center">
+<img src="images/DroneRescue_Unicorn.png" width="400"/>
+</p>
 
 
 ### Exporting a Tensorflow Model
 
 Once you are happy with your model you can export it in Tensorflow format.
 
-1. In Custom Vision, select the **Performance** tab and then select **Export**. Choose **Android (Tensorflow)** as the platform then click **Export** and **Download**.
+In Custom Vision, select the **Performance** tab and then select **Export**. Choose **Android (Tensorflow)** as the platform then click **Export** and **Download**.
+
+Now you have a protobuff file with the custom vision model that you can use locally in your script via tensorflow.
 
 ---
 
