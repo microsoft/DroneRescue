@@ -18,7 +18,9 @@ The flow of the lab consists of the following steps:
 2. Import the images and tag them into a new Custom Vision project, then use the training images to train and test the model.
 
 3. Export the model into TensorFlow format.
+
 ---
+
 ### Table of Contents
  - Introduction
  - Requirements and Setup
