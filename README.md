@@ -25,7 +25,7 @@ The flow of the lab consists of the following steps:
     - Host Machine Requirements
     - Python requirements
     - Install Airsim
-    - Install Drone Rescue Demo Code
+    - Install Drone Rescue Lab Code
   - Hands on Lab
     - Capture Synthetic Images
     - Create a Custom Vision Model
@@ -91,7 +91,7 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 }
 ```
 
-### Download the Drone Rescue Resources
+### Download the Drone Rescue Lab Code
 
 Now we will install the drone rescue landscape from GitHub
 
