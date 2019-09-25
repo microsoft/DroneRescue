@@ -22,8 +22,8 @@ The flow of the lab consists of the following steps:
 ---
 
 ### Table of Contents
- - Introduction
- - Requirements and Setup
+  - Introduction
+  - Requirements and Setup
     - Host Machine Requirements
     - Python requirements
     - Install AirSim
