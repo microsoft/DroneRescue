@@ -31,6 +31,7 @@ The flow of the lab consists of the following steps:
   - Hands on Lab
     - Run the Airsim simulator
     - Capture Synthetic Images with the Drone
+    - Explore the drone navigation code
     - Create Custom Vision Model in Azure
     - Finding the Unicorn
     - Exporting a Tensorflow Model
@@ -89,7 +90,7 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 }
 ```
 
-### Download the Drone Rescue Lab Code
+### Install the Drone Rescue Lab Code
 
 Now we will install the drone rescue landscape from GitHub
 

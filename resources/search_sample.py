@@ -87,7 +87,6 @@ def CropImages(image_dir):
             continue
 
 if __name__ == '__main__':
-    
     # Conect with the airsim server    
     client = airsim.MultirotorClient()
     client.confirmConnection()
@@ -126,8 +125,8 @@ if __name__ == '__main__':
     #    (-6.55, 12.25, "Hippo")]
 
     #configurations = [(2, 0.4, 1, -30), (3, 0.4, 1, -20)]
-    
-    ## let's find the animals and take some photos
+    #
+    ### let's find the animals and take some photos
     #for config in configurations:
     #    for animal in animals:
     #        print("Target animal:" + str(animal[2]))
