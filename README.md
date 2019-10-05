@@ -41,13 +41,13 @@ The flow of the lab consists of the following steps:
 ## Requirements and Setup
 
 ### Host Machine Requirements
-In order to run the AirSim simulator, you will need to have a computer with GPU, Windows, and DirectX 11 installed.
+In order to run the AirSim simulator, you will need to have a computer with GPU, Windows, and [DirectX 11](https://www.microsoft.com/en-us/download/details.aspx?id=17431) installed.
 
 **Alternatively**, you can create an Azure Virtual Machine with GPU to run the AirSim server. If you don't have a Microsoft Azure subscription, you can create a trial account at https://azure.microsoft.com. Please, follow the steps described in this link: [Creating Azure Virtual Machine for DroneRescue Demo](docs/create_azure_vm.md) 
 
 ### Python requirements
 
-You will need to [install Python 3 or higher ](https://www.python.org/downloads/) (if it is not already installed) in your computer. Please, make sure Python is added to the PATH and pip is properly installed.
+You will need to [install Python 3.7 or higher ](https://www.python.org/downloads/) (if it is not already installed) in your computer. Please, make sure Python is added to the PATH and pip is properly installed.
 
 It is also needed to install the `pillow`, `msgpackrpc`, `numpy` and `airsim` python libraries. 
 
@@ -64,11 +64,11 @@ The python libraries are already installed.
 
 Download and install the AirSim simulator. Use this bundled version prepared for this lab that contains the simulated scenario we are working with: 
 
-1. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimServer.zip`.
+1. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimRescue.zip`.
 
-2. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
+2. Extract the contents of the zip file to `<your user home>\Documents\AirSimRescue`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
-3. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
+3. Create a folder called `<your user home>\Documents\AirSim`. After that create an empty text file called `settings.json` file in your ``Documents\AirSim`` folder and paste in the following AirSim settings:
 
 ```
 {
@@ -104,7 +104,7 @@ git clone https://github.com/microsoft/DroneRescue
 ## Hands on Lab
 
 ### Run the Airsim simulator
-1. Double click `<your user home>\Documents\AirSimServer\run.bat` to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
+1. Double click `<your user home>\Documents\AirSimRescue\run.bat` to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
 
    NOTE: if you want to explore the area manually, you can select **Yes** to drive a vehicle around the area; simply restart AirSim to change back to the drone.
 
