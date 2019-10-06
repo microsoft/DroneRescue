@@ -102,7 +102,7 @@ git clone https://github.com/microsoft/DroneRescue
 ## Hands on Lab
 
 ### Run the Airsim simulator
-1. Double click `<your user home>\Documents\AirSimRescue\run.bat` to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
+1. Double click `<your user home>\Documents\AirSimRescue\run.bat` to start the AirsimServer with our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
 
    NOTE: if you want to explore the area manually, you can select **Yes** to drive a vehicle around the area; simply restart AirSim to change back to the drone.
 
