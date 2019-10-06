@@ -92,9 +92,7 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 ### Install the Drone Rescue Lab Code
 
-Now, we will install the drone rescue landscape from GitHub
-
-Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder.
+Now, we will install the drone rescue landscape from GitHub. If you do not have git installed, please download and install it from this [link]("https://git-scm.com/download/win"). Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder. To do that, type in a power shell terminal the following:
 
 ```
 git clone https://github.com/microsoft/DroneRescue
