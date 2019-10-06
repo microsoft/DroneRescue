@@ -68,6 +68,11 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 2. Extract the contents of the zip file to `<your user home>\Documents\AirSimRescue`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
+<p align="center">	
+<img src="images/DroneRescue_Airsim1.JPG" width="458" style="float: left"/>	
+<img src="images/DroneRescue_Airsim.JPG" width="500" sytle="float: left"/>	 
+</p>
+
 3. Create a folder called `<your user home>\Documents\AirSim`. After that, create an empty text file called `settings.json` file in your ``Documents\AirSim`` folder and paste in the following AirSim settings:
 
 ```
