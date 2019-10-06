@@ -122,6 +122,8 @@ In this step, we will fly the drone around our 3D world and orbit each animal, s
 
 The implementation of our navigation controller is located in  the `DroneRescue` repo located in your local folder `<your user home>\Documents\DroneRescue\resources\search_sample.py`. 
 
+> Suggestion: have a look to that code to see the basics to program a drone in Airsim
+
 Run it to start the default navigation task. You can run that file from any python editor, such as Visual Studio Code, or just open a powershell terminal in the repo folder and type:
 
 ```
