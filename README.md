@@ -15,7 +15,7 @@ Your mission, should you choose to accept it, is to work through the guided step
 The flow of the lab consists of the following steps:
 1. Use AirSim to generate training data for your model by flying the virtual drone around the 3D-rendered environment and collecting images of all animals. 
 
-2.	Import the images and tag them in a new Custom Vision project then use the training images to train and test the model.
+2. Import the images and tag them in a new Custom Vision project then use the training images to train and test the model.
 
 3. Export the model into TensorFlow format.
 
