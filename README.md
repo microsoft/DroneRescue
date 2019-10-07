@@ -54,7 +54,7 @@ It is also needed to install the `pillow`, `msgpackrpc`, `numpy` and `airsim` py
 Open a powershell terminal and type:
 
 ```
-py - m pip install msgpack-rpc-python numpy pillow airsim==1.2.4 --user
+py -m pip install msgpack-rpc-python numpy pillow airsim==1.2.4 --user
 ```
 
 The python libraries are already installed.
