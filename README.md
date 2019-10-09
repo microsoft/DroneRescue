@@ -15,7 +15,7 @@ Your mission, should you choose to accept it, is to work through the guided step
 The flow of the lab consists of the following steps:
 1. Use AirSim to generate training data for your model by flying the virtual drone around the 3D-rendered environment and collecting images of all animals. 
 
-2.	Import the images and tag them in a new Custom Vision project then use the training images to train and test the model.
+2. Import the images and tag them in a new Custom Vision project then use the training images to train and test the model.
 
 3. Export the model into TensorFlow format.
 
@@ -41,20 +41,20 @@ The flow of the lab consists of the following steps:
 ## Requirements and Setup
 
 ### Host Machine Requirements
-In order to run the AirSim simulator, you will need to have a computer with GPU, Windows, and DirectX 11 installed.
+In order to run the AirSim simulator, you will need to have a computer with GPU, Windows. You also will need the [DirectX 11](https://www.microsoft.com/en-us/download/details.aspx?id=35) and the [C++ redistributable runtime]( https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
 
 **Alternatively**, you can create an Azure Virtual Machine with GPU to run the AirSim server. If you don't have a Microsoft Azure subscription, you can create a trial account at https://azure.microsoft.com. Please, follow the steps described in this link: [Creating Azure Virtual Machine for DroneRescue Demo](docs/create_azure_vm.md) 
 
 ### Python requirements
 
-You will need to [install Python 3 or higher ](https://www.python.org/downloads/) (if it is not already installed) in your computer. Please, make sure Python is added to the PATH and pip is properly installed.
+You will need to [install Python 3.7 or higher ](https://www.python.org/downloads/) (if it is not already installed) in your computer. Please, make sure Python is added to the PATH and pip is properly installed.
 
 It is also needed to install the `pillow`, `msgpackrpc`, `numpy` and `airsim` python libraries. 
 
 Open a powershell terminal and type:
 
 ```
-py - m pip install msgpack-rpc-python numpy pillow airsim==1.2.4 --user
+py -m pip install msgpack-rpc-python numpy pillow airsim==1.2.4 --user
 ```
 
 The python libraries are already installed.
@@ -64,11 +64,16 @@ The python libraries are already installed.
 
 Download and install the AirSim simulator. Use this bundled version prepared for this lab that contains the simulated scenario we are working with: 
 
-1. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimServer.zip`.
+1. Click [here](https://dronerescuelab.blob.core.windows.net/dronelab-assets/AirSimRescue.zip) to download the `AirSimRescue.zip`.
 
-2. Extract the contents of the zip file to `<your user home>\Documents\AirSimServer`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
+2. Extract the contents of the zip file to `<your user home>\Documents\AirSimRescue`. Open the file explorer and navigate to this folder. You will find in that folder the `run.bat` simulator launcher.
 
-3. Create a `settings.json` file in your **Documents\AirSim** folder and paste in the following AirSim settings:
+<p align="center">	
+<img src="images/DroneRescue_Airsim1.JPG" height="210" style="float: left; margin: 5px"/>	&nbsp;	&nbsp;	&nbsp;
+<img src="images/DroneRescue_Airsim.JPG" height="210" sytle="float: left; margin 5px"/>	 
+</p>
+
+3. Create a folder called `<your user home>\Documents\AirSim`. After that, create an empty text file called `settings.json` file in your ``Documents\AirSim`` folder and paste in the following AirSim settings:
 
 ```
 {
@@ -92,9 +97,7 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 ### Install the Drone Rescue Lab Code
 
-Now, we will install the drone rescue landscape from GitHub
-
-Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder.
+Now, we will install the drone rescue landscape from GitHub. If you do not have git installed, please download and install it from this [link]("https://git-scm.com/download/win"). Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder. To do that, type in a power shell terminal the following:
 
 ```
 git clone https://github.com/microsoft/DroneRescue
@@ -104,7 +107,7 @@ git clone https://github.com/microsoft/DroneRescue
 ## Hands on Lab
 
 ### Run the Airsim simulator
-1. Double click `<your user home>\Documents\AirSimServer\run.bat` to start our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
+1. Double click `<your user home>\Documents\AirSimRescue\run.bat` to start the AirsimServer with our custom drone rescue landscape. Make sure to click **No** when prompted to use car simulation to start quadrotor simulation.
 
    NOTE: if you want to explore the area manually, you can select **Yes** to drive a vehicle around the area; simply restart AirSim to change back to the drone.
 
@@ -123,6 +126,8 @@ git clone https://github.com/microsoft/DroneRescue
 In this step, we will fly the drone around our 3D world and orbit each animal, so we can take some photos. Ensure the custom drone rescue landscape world is running in AirSim as per the previous step. We will connect to the running environment using Python.
 
 The implementation of our navigation controller is located in  the `DroneRescue` repo located in your local folder `<your user home>\Documents\DroneRescue\resources\search_sample.py`. 
+
+> Suggestion: have a look to that code to see the basics to program a drone in Airsim
 
 Run it to start the default navigation task. You can run that file from any python editor, such as Visual Studio Code, or just open a powershell terminal in the repo folder and type:
 
