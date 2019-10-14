@@ -30,7 +30,7 @@ class OrbitNavigator:
         self.z = None
         self.snapshot_index = 0
         self.photo_prefix = photo_prefix
-        self.takeoff = True  # whether we did a take off
+        self.takeoff = True # whether we did a take off
 
         if self.snapshots is not None and self.snapshots > 0:
             self.snapshot_delta = 360 / self.snapshots
@@ -42,7 +42,7 @@ class OrbitNavigator:
             raise Exception(
                 "Expecting '[x,y]' for the center direction vector")
 
-        # center is just a direction vector, so normalize it to compute the actual cx,cy locations.
+        # center is just a direction vector, so normalize it to compute the actual cx,cy locations
         cx = float(center[0])
         cy = float(center[1])
         length = math.sqrt((cx*cx)+(cy*cy))
@@ -79,7 +79,7 @@ class OrbitNavigator:
         print("arming the drone...")
         self.client.armDisarm(True)
 
-        # AirSim uses NED coordinates so negative axis is up.
+        # AirSim uses NED coordinates so negative axis is up
         start = self.client.getMultirotorState().kinematics_estimated.position
         landed = self.client.getMultirotorState().landed_state
         if not self.takeoff and landed == airsim.LandedState.Landed:
@@ -91,7 +91,7 @@ class OrbitNavigator:
         else:
             print("already flying so we will orbit at current altitude {}".format(
                 start.z_val))
-            z = start.z_val  # use current altitude then
+            z = start.z_val # use current altitude then
 
         print("climbing to position: {},{},{}".format(
             start.x_val, start.y_val, z))
@@ -109,7 +109,7 @@ class OrbitNavigator:
         self.start_time = time.time()
 
         while count < self.iterations and self.snapshot_index < self.snapshots:
-            # ramp up to full speed in smooth increments so we don't start too aggressively.
+            # ramp up to full speed in smooth increments so we don't start too aggressively
             now = time.time()
             speed = self.speed
             diff = now - self.start_time
@@ -151,7 +151,7 @@ class OrbitNavigator:
 
     def track_orbits(self, angle):
         # tracking # of completed orbits is surprisingly tricky to get right in order to handle random wobbles
-        # about the starting point.  So we watch for complete 1/2 orbits to avoid that problem.
+        # about the starting point.  So we watch for complete 1/2 orbits to avoid that problem
         if angle < 0:
             angle += 360
 
@@ -192,7 +192,7 @@ class OrbitNavigator:
 
         if self.quarter and self.previous_diff is not None and diff != self.previous_diff:
             # watch direction this diff is moving if it switches from shrinking to growing
-            # then we passed the starting point.
+            # then we passed the starting point
             direction = self.sign(self.previous_diff - diff)
             if self.previous_sign is None:
                 self.previous_sign = direction
@@ -210,26 +210,24 @@ class OrbitNavigator:
         if not os.path.exists(self.image_dir):
             os.makedirs(self.image_dir)
 
-        # first hold our current position so drone doesn't try and keep flying while we take the picture.
+        # first hold our current position so drone doesn't try and keep flying while we take the picture
         pos = self.client.getMultirotorState().kinematics_estimated.position
-        self.client.moveToPositionAsync(pos.x_val, pos.y_val, self.z, 0.25, 3, airsim.DrivetrainType.MaxDegreeOfFreedom,
-                                        airsim.YawMode(False, self.camera_heading))
-        responses = self.client.simGetImages([airsim.ImageRequest(
-            0, airsim.ImageType.Scene)])  # scene vision image in png format
-        response = responses[0]
-        filename = self.photo_prefix + \
-            str(self.snapshot_index) + "_" + str(int(time.time()))
+        self.client.moveToPositionAsync(pos.x_val, pos.y_val, self.z, 
+                                        velocity=0.25, timeout_sec=3, 
+                                        drivetrain=airsim.DrivetrainType.MaxDegreeOfFreedom,
+                                        yaw_mode=airsim.YawMode(is_rate=False, yaw_or_rate=self.camera_heading))
+        # scene vision image in png format
+        responses = self.client.simGetImages([airsim.ImageRequest("0", airsim.ImageType.Scene)])
+        response = responses[0] # TODO use simGetImage() since only one image is requested
+        filename = "{}{}_{:.0f}".format(self.photo_prefix, self.snapshot_index, time.time())
         self.snapshot_index += 1
-        airsim.write_file(os.path.normpath(
-            self.image_dir + filename + '.png'), response.image_data_uint8)
+        airsim.write_file(os.path.normpath(self.image_dir + filename + '.png'), response.image_data_uint8)
         print("Saved snapshot: {}".format(filename))
-        # cause smooth ramp up to happen again after photo is taken.
+        # cause smooth ramp up to happen again after photo is taken
         self.start_time = time.time()
 
     def sign(self, s):
-        if s < 0:
-            return -1
-        return 1
+        return -1 if s < 0 else 1
 
 
 if __name__ == "__main__":
@@ -238,18 +236,24 @@ if __name__ == "__main__":
     arg_parser = argparse.ArgumentParser(
         "Orbit.py makes drone fly in a circle with camera pointed at the given center vector")
     arg_parser.add_argument("--radius", type=float,
-                            help="radius of the orbit", default=10)
+                            help="radius of the orbit (default: %(default).0f)", default=10)
     arg_parser.add_argument("--altitude", type=float,
-                            help="altitude of orbit (in positive meters)", default=20)
+                            help="altitude of orbit (in positive meters) (default: %(default).0f)", default=20)
     arg_parser.add_argument("--speed", type=float,
-                            help="speed of orbit (in meters/second)", default=3)
-    arg_parser.add_argument(
-        "--center", help="x,y direction vector pointing to center of orbit from current starting position (default 1,0)", default="1,0")
+                            help="speed of orbit (in meters/second) (default: %(default).0f)", default=3)
     arg_parser.add_argument("--iterations", type=float,
-                            help="number of 360 degree orbits (default 3)", default=3)
+                            help="number of 360 degree orbits  (default: %(default).0f)", default=3)
+    arg_parser.add_argument("--center", 
+                            help="x,y direction vector pointing to center of orbit from current starting position "
+                                 "(default: %(default)s)", default="1,0")
     arg_parser.add_argument("--snapshots", type=float,
-                            help="number of FPV snapshots to take during orbit (default 0)", default=0)
+                            help="number of FPV snapshots to take during orbit  (default: %(default).0f)", default=0)
     args = arg_parser.parse_args(args)
-    nav = OrbitNavigator(args.radius, args.altitude, args.speed,
-                         args.iterations, args.center.split(','), args.snapshots)
+
+    nav = OrbitNavigator(args.radius, 
+                         args.altitude, 
+                         args.speed,
+                         args.iterations, 
+                         [float(c) for c in args.center.split(',')], 
+                         args.snapshots)
     nav.start()
