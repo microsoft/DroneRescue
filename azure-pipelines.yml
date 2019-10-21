@@ -13,5 +13,5 @@ steps:
   inputs:
     repository: $(imageName)
     command: build
-    Dockerfile: docker/ubuntu-bionic-melodic/Dockerfile
+    Dockerfile: docker/ubuntu-bionic/Dockerfile
 
