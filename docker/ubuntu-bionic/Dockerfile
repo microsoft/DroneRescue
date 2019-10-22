@@ -9,7 +9,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -q -y \
 
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get update && apt-get install -y git curl software-properties-common apt-utils python python-pip
-RUN bash -c 'git config --global user.name "pabloinigoblasco"'
+RUN bash -c 'git config --global user.name "drone_rescue_docker_build"'
 
 RUN python -m pip install msgpack-rpc-python numpy pillow airsim==1.2.4 --user
 
