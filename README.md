@@ -1,7 +1,5 @@
 # Search and Rescue Lab - Microsoft AirSim and Custom Vision 
 
-[![Build Status](https://dev.azure.com/AISchoolRepositories/GithubRepos/_apis/build/status/pabloinigoblasco.DroneRescue?branchName=master)](https://dev.azure.com/AISchoolRepositories/GithubRepos/_build/latest?definitionId=3&branchName=master)
-
 ## Introduction
 The goal of this lab is to work through how to bring real AI to the edge, by creating a custom vision model in the cloud. You will learn the basics of the MS AirSim Drone simulator (https://github.com/microsoft/AirSim) and the Microsoft Custom Vision Cognitive Service (https://www.customvision.ai).
 
