@@ -1,17 +1,27 @@
 trigger:
-- master
+  - master
 
-pool:
-  name: 'nvidia-docker-pool'
+jobs:
+- job: Jaco
+ timeoutInMinutes: 120
+ pool:
+   name: 'nvidia-docker-pool'
 
-variables:
-  imageName: 'drone-rescue-bionic'
-
-steps:
-- task: Docker@2
-  displayName: Build docker Image
-  inputs:
-    repository: $(imageName)
-    command: build
-    Dockerfile: docker/ubuntu-bionic/Dockerfile
-
+ steps:
+ - task: Bash@3
+   inputs:
+     workingDirectory: 'docker/ubuntu-bionic-melodic'
+     targetType: 'inline'
+     script: 'echo $(GITHUB_TOKEN); ./build.sh $(GITHUB_TOKEN)'
+ - task: Bash@3
+   timeoutInMinutes: 10
+   inputs:
+     workingDirectory: 'docker/ubuntu-bionic-melodic'
+     targetType: 'inline'
+     script: './run_docker_container.sh'
+   env:
+     DISPLAY: :0.0
+ - task: Bash@3
+   inputs:
+     targetType: 'inline'
+     script: docker rmi ubuntu1804_dronerescue
