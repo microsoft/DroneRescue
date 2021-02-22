@@ -6,15 +6,15 @@ If you don't have a Microsoft Azure subscription you can create a trial account 
 
 1. Login to the Microsoft Azure portal https://portal.azure.com
 
-2. Click **Create a resource** then search for and select **Data Science Virtual Machine - Windows 2016** and click **Create**. 
+2. Click **Create a resource** then search for and select **Data Science Virtual Machine - Windows 2019** and click **Create**. 
 
-![drone-1](../images/drone-1.png)
+![drone-1(1)](../images/drone-1(1).PNG)
 
 3. On the **Create virtual machine** slice complete the **Basics** mandatory options ensuring to select one of the supported regions for **NV-series**. You can find NV-series supported regions here https://azure.microsoft.com/global-infrastructure/services. Click **OK** to continue
 
-![drone-2](../images/drone-2.png)
+![drone-2(1)](../images/drone-2(1).PNG)
 
-4. In the **Size** field, click on **Change size**. This opens the **Select a VM size** panel.
+4. In the **Size** field, click on **See all sizes**. This opens the **Select a VM size** panel.
 
 5. Click on **Clear all filters**, search for the `NV6` size and **select** it.
 
@@ -26,7 +26,7 @@ If you don't have a Microsoft Azure subscription you can create a trial account 
 
   > **Note:** Make sure you remember this info as you'll need it to enter your Virtual Machine.
 
-![drone-4](../images/drone-4.png)
+![drone-4(1)](../images/drone-4(1).PNG)
 
 7. Click on **Review + create** to go to the final step.
 
