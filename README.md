@@ -41,7 +41,7 @@ The flow of the lab consists of the following steps:
 ## Requirements and Setup
 
 ### Host Machine Requirements
-In order to run the AirSim simulator, you will need to have a computer with GPU, Windows. You also will need the [DirectX 11](https://www.microsoft.com/en-us/download/details.aspx?id=35) and the [C++ redistributable runtime]( https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
+In order to run the AirSim simulator, you will need to have a computer with GPU, Windows. You also will need the [C++ redistributable runtime]( https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads) installed.
 
 **Alternatively**, you can create an Azure Virtual Machine with GPU to run the AirSim server. If you don't have a Microsoft Azure subscription, you can create a trial account at https://azure.microsoft.com. Please, follow the steps described in this link: [Creating Azure Virtual Machine for DroneRescue Demo](docs/create_azure_vm.md) 
 
@@ -97,7 +97,7 @@ Download and install the AirSim simulator. Use this bundled version prepared for
 
 ### Install the Drone Rescue Lab Code
 
-Now, we will install the drone rescue landscape from GitHub. If you do not have git installed, please download and install it from this [link]("https://git-scm.com/download/win"). Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder. To do that, type in a power shell terminal the following:
+Now, we will install the drone rescue landscape from GitHub. If you do not have git installed, please download and install it from this [link](https://git-scm.com/download/win). Clone or download this github repo into a directory called `DroneRescue` in `<your user home>\Documents` folder. To do that, type in a power shell terminal the following:
 
 ```
 git clone https://github.com/microsoft/DroneRescue
@@ -221,7 +221,7 @@ Log in to the system using your Azure Subscription. If you don't have a Microsof
 <img src="images/DroneRescue_CV6.JPG" width="700"/>
  </p>
 
-4. Now, we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **Images** folder. Enter **Black_Sheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
+4. Now, we are going to add the training images we captured from the AirSim search and rescue training environment. Select **Add images** then **Browse local files** and select all the images in the **drone_images** folder. Enter **Black_Sheep** as your tag, click **+** to add the tag then select **Upload files**. Select **Done** once the images have uploaded successfully.
 
 <p align="center">
 <img src="images/DroneRescue_CV7.JPG" width="700"/>
@@ -252,7 +252,7 @@ OrbitAnimal(-12.18, -13.56, 2, 0.4, 1, -30, "AlpacaRainbow")
 <img src="images/DroneRescue_CV10.JPG" width="700"/>
 </p>
 
-11. Let's run a quick test using a real-world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select t **Quick Test** then **Browse local files**. Open the following file `DroneRescue\TestImages\AlpacaRainbow.png`. If you have followed along so far, you should see a probability of 99.9% - 100% for the AlpacaRainbow. Now, things get a little more interesting!
+11. Let's run a quick test using a real-world photograph of our yellow alpaca and see what our newly trained model thinks about it. Select t **Quick Test** then **Browse local files**. Open the following file `DroneRescue\TestImages\AlpacaRainbow.png`. If you have followed along so far, you should see a probability of 99.9% - 100% for the Alpaca_Rainbow. Now, things get a little more interesting!
 <p align="center">
 <img src="images/DroneRescue_CV12.JPG" width="700"/>
 </p>
@@ -267,7 +267,7 @@ OrbitAnimal(-12.18, -13.56, 3, 0.4, 1, -20, "AlpacaRainbow")
 
 14. Save **search_sample.py** and select **Debug -> Start Without Debugging** to execute the file. 
 
-15. Return to **customvision.ai** and add the images as we did previously. Tag the new images with **AlpacaRainbow**. Select **Done** once the images have uploaded successfully. 
+15. Return to **customvision.ai** and add the images as we did previously. Tag the new images with **Alpaca_Rainbow**. Select **Done** once the images have uploaded successfully. 
 
 16. Train the model with the new images and inspect the iteration results.
 
